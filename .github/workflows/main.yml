@@ -13,7 +13,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: yarne1999
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: dckr_pat_h1gncqQj_LcJ84jLZAFa4bNYsqk
 
       - name: build and push docker image to registry
         uses: docker/build-push-action@v5
