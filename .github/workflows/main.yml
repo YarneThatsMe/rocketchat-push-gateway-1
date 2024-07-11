@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ansiwen/rocketchat-push-gateway:latest
+          tags: yarne1999/rocketchat-push-gateway:latest
