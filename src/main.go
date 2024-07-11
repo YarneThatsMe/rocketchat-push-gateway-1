@@ -16,12 +16,12 @@ import (
 )
 
 const (
-	apnsUpstreamTopic = "chat.rocket.ios"
+//	apnsUpstreamTopic = "chat.rocket.ios"
 	upstreamGateway   = "gateway.rocket.chat"
 )
 
 var (
-	apnsTopic = os.Getenv("RCPG_APNS_TOPIC")
+//	apnsTopic = os.Getenv("RCPG_APNS_TOPIC")
 	debug, _  = strconv.ParseBool(os.Getenv("RCPG_DEBUG"))
 	reqID     atomic.Uintptr
 )
@@ -42,10 +42,10 @@ type RCPushNotification struct {
 		Badge     int        `json:"badge,omitempty"`
 		Sound     string     `json:"sound"`
 		NotID     int        `json:"notId,omitempty"`
-		Apn       *struct {
-			Category string `json:"category,omitempty"`
-			Text     string `json:"text,omitempty"`
-		} `json:"apn,omitempty"`
+//		Apn       *struct {
+//			Category string `json:"category,omitempty"`
+//			Text     string `json:"text,omitempty"`
+//		} `json:"apn,omitempty"`
 		Gcm *struct {
 			Image string `json:"image,omitempty"`
 			Style string `json:"style,omitempty"`
@@ -132,9 +132,9 @@ func main() {
 
 	// Define the HTTP server and routes
 	http.HandleFunc("/push/gcm/send", withRCRequest(getGCMPushNotificationHandler(), false))
-	http.HandleFunc("/push/apn/send", withRCRequest(getAPNPushNotificationHandler(), false))
+//	http.HandleFunc("/push/apn/send", withRCRequest(getAPNPushNotificationHandler(), false))
 	http.HandleFunc("/filter/push/gcm/send", withRCRequest(getGCMPushNotificationHandler(), true))
-	http.HandleFunc("/filter/push/apn/send", withRCRequest(getAPNPushNotificationHandler(), true))
+//	http.HandleFunc("/filter/push/apn/send", withRCRequest(getAPNPushNotificationHandler(), true))
 	// Start the HTTP server
 	addr := os.Getenv("RCPG_ADDR")
 	log.Println("Starting server on", addr)
